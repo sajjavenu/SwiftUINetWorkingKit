@@ -5,8 +5,9 @@
 //  Created by Sajja Venu on 27/01/26.
 //
 
+import Alamofire
 
-open public protocol ApiInputDataModel {
+public protocol ApiInputDataModel {
     var baseURL:String {get}
     var endPoint: String {get}
     var httpMethod: HTTPMethod {get}

@@ -10,9 +10,9 @@ import Alamofire
 import Combine
 
 
-open typealias OnApiFailure = (CustomFailures?) -> Void
+public typealias OnApiFailure = (CustomFailures?) -> Void
 
-open class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtocols{
+public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtocols{
     
     private let reachabilityManager = NetworkReachabilityManager()
     
@@ -21,7 +21,7 @@ open class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtoc
         //        return false
     }
     
-    func alamofireApiRequest<T>(requestData: any ApiInputDataModel, expecting: T.Type, success: @escaping (Result<T, any Error>) -> Void, failure: @escaping OnApiFailure, onNointernet: @escaping () -> Void) where T : Decodable {
+   public func alamofireApiRequest<T>(requestData: any ApiInputDataModel, expecting: T.Type, success: @escaping (Result<T, any Error>) -> Void, failure: @escaping OnApiFailure, onNointernet: @escaping () -> Void) where T : Decodable {
         
         
         guard networkAvailability() else {
@@ -32,7 +32,7 @@ open class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtoc
         let urlString =  "\(requestData.baseURL)\(requestData.endPoint)"
         var headers = HTTPHeaders()
         requestData.headers.forEach({headers.add(name: $0.key, value: $0.value)})
-        headers.add(name: KeyChainConstants.authId, value: KeychainsStorageManager.shared.getKeyChainValue(key: KeyChainConstants.authId))
+//        headers.add(name: KeyChainConstants.authId, value: KeychainsStorageManager.shared.getKeyChainValue(key: KeyChainConstants.authId))
         
         print("Api Url is:\(urlString)")
         print("Api body is:\(requestData.parameters)")
@@ -59,7 +59,7 @@ open class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtoc
         
     }
     
-    func combineApiRequest<T>(requestData: any ApiInputDataModel, expecting: T.Type) -> AnyPublisher<T, CustomFailures> where T : Decodable {
+   public func combineApiRequest<T>(requestData: any ApiInputDataModel, expecting: T.Type) -> AnyPublisher<T, CustomFailures> where T : Decodable {
         guard networkAvailability() else {
             
             return Fail(error: CustomFailures.noInternet).eraseToAnyPublisher()
@@ -68,7 +68,7 @@ open class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtoc
         let urlString =  "\(requestData.baseURL)\(requestData.endPoint)"
         var headers = HTTPHeaders()
         requestData.headers.forEach({headers.add(name: $0.key, value: $0.value)})
-        headers.add(name: KeyChainConstants.authId, value: KeychainsStorageManager.shared.getKeyChainValue(key: KeyChainConstants.authId))
+//        headers.add(name: KeyChainConstants.authId, value: KeychainsStorageManager.shared.getKeyChainValue(key: KeyChainConstants.authId))
         
         print("Api Url is:\(urlString)")
         print("Api method is:\(requestData.httpMethod)")
