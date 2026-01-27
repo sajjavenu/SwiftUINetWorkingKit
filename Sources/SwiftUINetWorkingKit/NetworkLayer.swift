@@ -14,6 +14,10 @@ public typealias OnApiFailure = (CustomFailures?) -> Void
 
 public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtocols{
     
+    public  init() {
+            
+        }
+    
     private let reachabilityManager = NetworkReachabilityManager()
     
     private func networkAvailability() -> Bool {
