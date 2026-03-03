@@ -72,9 +72,9 @@ public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProt
                 print("error on api call is: \(err)")
                 switch err {
                     
-                case .serverTrustEvaluationFailed(let reason):
-                    print("SSL Pinning is failed and the reason is : \(reason)")
-                    failure(.sslPinningError)
+//                case .serverTrustEvaluationFailed(let reason):
+//                    print("SSL Pinning is failed and the reason is : \(reason)")
+//                    failure(.sslPinningError)
                     
                 default:
                     failure(.unKnownError)

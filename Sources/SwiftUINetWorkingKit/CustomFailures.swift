@@ -10,5 +10,5 @@ public enum CustomFailures : String, Error, CaseIterable, Equatable{
     case noInternet = "NoInternet"
     case nilAPIResponse = "NilAPIResponse"
     case unKnownError = "UnKnownError"
-    case sslPinningError = "SSLPinningError"
+//    case sslPinningError = "SSLPinningError"
 }
