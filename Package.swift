@@ -26,6 +26,9 @@ let package = Package(
             name: "SwiftUINetWorkingKit",
             dependencies: [
                 .product(name: "Alamofire", package: "Alamofire")
+            ],
+            resources: [
+                .process("Resources") 
             ]
         ),
         .testTarget(

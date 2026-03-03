@@ -6,8 +6,9 @@
 //
 
 public enum CustomFailures : String, Error, CaseIterable, Equatable{
-    case jsonDecodingError = "jsonDecodingError"
-    case noInternet = "nointernet"
-    case nilAPIResponse = "nilAPIResponse"
-    case unKnownError = "unKnownError"
+    case jsonDecodingError = "JsonDecodingError"
+    case noInternet = "NoInternet"
+    case nilAPIResponse = "NilAPIResponse"
+    case unKnownError = "UnKnownError"
+    case sslPinningError = "SSLPinningError"
 }
