@@ -30,6 +30,7 @@ public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProt
         
         session = Session(serverTrustManager: trustManager)
         
+        print("Bundle certs:", Bundle.module.paths(forResourcesOfType: "cer", inDirectory: nil))
     }
     
     private let reachabilityManager = NetworkReachabilityManager()
