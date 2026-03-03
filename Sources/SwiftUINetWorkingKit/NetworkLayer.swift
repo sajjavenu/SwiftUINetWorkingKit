@@ -14,10 +14,10 @@ public typealias OnApiFailure = (CustomFailures?) -> Void
 
 public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtocols{
     
-    private let session: Session
+//    private let session: Session
     
     public  init() {
-        let host = "https://fy-event-38mht.ondigitalocean.app"
+     /*   let host = "https://fy-event-38mht.ondigitalocean.app"
         
         let evaluators: [String: ServerTrustEvaluating] = [
             host: PublicKeysTrustEvaluator(
@@ -29,6 +29,7 @@ public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProt
         let trustManager = ServerTrustManager(evaluators: evaluators)
         
         session = Session(serverTrustManager: trustManager)
+        */
     }
     
     private let reachabilityManager = NetworkReachabilityManager()
