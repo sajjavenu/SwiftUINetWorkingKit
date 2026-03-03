@@ -17,7 +17,7 @@ public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProt
     private let session: Session
     
     public  init() {
-        let host = "https://fy-event-38mht.ondigitalocean.app"
+        let host = "fy-event-38mht.ondigitalocean.app"
         
         let evaluators: [String: ServerTrustEvaluating] = [
             host: PublicKeysTrustEvaluator(
