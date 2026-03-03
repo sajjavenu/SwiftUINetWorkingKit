@@ -14,10 +14,10 @@ public typealias OnApiFailure = (CustomFailures?) -> Void
 
 public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProtocols{
     
-//    private let session: Session
+    private let session: Session
     
     public  init() {
-     /*   let host = "https://fy-event-38mht.ondigitalocean.app"
+        let host = "https://fy-event-38mht.ondigitalocean.app"
         
         let evaluators: [String: ServerTrustEvaluating] = [
             host: PublicKeysTrustEvaluator(
@@ -29,7 +29,7 @@ public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProt
         let trustManager = ServerTrustManager(evaluators: evaluators)
         
         session = Session(serverTrustManager: trustManager)
-        */
+        
     }
     
     private let reachabilityManager = NetworkReachabilityManager()
@@ -72,9 +72,9 @@ public class ApiNetworkLayer: AlamofireApiNetworkProtocols,CombineApiNetworkProt
                 print("error on api call is: \(err)")
                 switch err {
                     
-//                case .serverTrustEvaluationFailed(let reason):
-//                    print("SSL Pinning is failed and the reason is : \(reason)")
-//                    failure(.sslPinningError)
+                case .serverTrustEvaluationFailed(let reason):
+                    print("SSL Pinning is failed and the reason is : \(reason)")
+                    failure(.unKnownError)
                     
                 default:
                     failure(.unKnownError)
